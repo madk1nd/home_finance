@@ -13,7 +13,7 @@ pipeline {
 		}
 		stage('Deploy') {
             steps {
-                sh 'echo Deploy success!'
+                sh './deploy_back.sh'
             }
         }
 	}
