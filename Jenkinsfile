@@ -3,8 +3,10 @@ pipeline {
 	stages {
 	    stage('Backend') {
 	        when {
-                branch "master"
-                changeset "backend-api/**"
+	            allOf {
+                    branch 'master'
+                    changeset 'backend-api/**'
+                }
             }
             stages {
                 stage('Build Backend') {
@@ -26,8 +28,10 @@ pipeline {
         }
         stage('Frontend') {
             when {
-                branch "master"
-                changeset "frontend/**"
+                allOf {
+                    branch 'master'
+                    changeset 'frontend/**'
+                }
             }
             stages {
                 stage('Install Frontend') {
