@@ -2,9 +2,8 @@ package com.finance.home_finance.controller;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.http.ResponseEntity;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TestControllerTest {
 
@@ -18,6 +17,6 @@ class TestControllerTest {
     @Test
     void test1() {
         String body = controller.test().getBody();
-        assertEquals("OK", body);
+        assertEquals("Hello", body);
     }
 }

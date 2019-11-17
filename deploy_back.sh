@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp target/home*.jar /home/madk1nd/finance/back/home_finance.jar
+cp backened-api/target/backend-api*.jar /home/madk1nd/finance/back/home_finance.jar
