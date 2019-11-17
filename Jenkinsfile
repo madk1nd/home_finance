@@ -29,29 +29,31 @@ pipeline {
                 branch "master"
                 changeset "frontend/**"
             }
-            stage('Install Frontend') {
-                steps {
-                    sh 'npm i'
+            stages {
+                stage('Install Frontend') {
+                    steps {
+                        sh 'npm i'
+                    }
                 }
-            }
-            stage('Lint Frontend') {
-                steps {
-                    sh 'npm run lint'
+                stage('Lint Frontend') {
+                    steps {
+                        sh 'npm run lint'
+                    }
                 }
-            }
-            stage('Test Frontend') {
-                steps {
-                    sh 'npm run test'
+                stage('Test Frontend') {
+                    steps {
+                        sh 'npm run test'
+                    }
                 }
-            }
-            stage('Build Frontend') {
-                steps {
-                    sh 'npm run build'
+                stage('Build Frontend') {
+                    steps {
+                        sh 'npm run build'
+                    }
                 }
-            }
-            stage('Deploy Frontend') {
-                steps {
-                    sh './deploy_front.sh'
+                stage('Deploy Frontend') {
+                    steps {
+                        sh './deploy_front.sh'
+                    }
                 }
             }
         }
