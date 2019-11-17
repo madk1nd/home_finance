@@ -1,54 +1,58 @@
 pipeline {
 	agent any
 	stages {
-	    when {
-            branch "master"
-            changeset "backend-api/**"
-        }
-		stage('Build') {
-			steps {
-				sh 'mvn clean install -DskipTests'
-			}
-		}
-		stage('Test') {
-			steps {
-				sh 'mvn test'
-			}
-		}
-		stage('Deploy') {
-            steps {
-                sh './deploy_back.sh'
+	    stage('Backend') {
+	        when {
+                branch "master"
+                changeset "backend-api/**"
+            }
+            stages {
+                stage('Build Backend') {
+                    steps {
+                        sh 'mvn clean install -DskipTests'
+                    }
+                }
+                stage('Test Backend') {
+                    steps {
+                        sh 'mvn test'
+                    }
+                }
+                stage('Deploy Backend') {
+                    steps {
+                        sh './deploy_back.sh'
+                    }
+                }
             }
         }
-	}
-	stages {
-        when {
-            branch "master"
-            changeset "frontend/**"
-        }
-        stage('Install') {
-            steps {
-                sh 'npm i'
+        stage('Frontend') {
+            when {
+                branch "master"
+                changeset "frontend/**"
             }
-        }
-        stage('Lint') {
-            steps {
-                sh 'npm run lint'
+            stage('Install Frontend') {
+                steps {
+                    sh 'npm i'
+                }
             }
-        }
-        stage('Test') {
-            steps {
-                sh 'npm run test'
+            stage('Lint Frontend') {
+                steps {
+                    sh 'npm run lint'
+                }
             }
-        }
-        stage('Build') {
-            steps {
-                sh 'npm run build'
+            stage('Test Frontend') {
+                steps {
+                    sh 'npm run test'
+                }
             }
-        }
-        stage('Deploy') {
-            steps {
-                sh './deploy_front.sh'
+            stage('Build Frontend') {
+                steps {
+                    sh 'npm run build'
+                }
+            }
+            stage('Deploy Frontend') {
+                steps {
+                    sh './deploy_front.sh'
+                }
             }
         }
     }
