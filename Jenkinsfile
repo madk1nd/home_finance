@@ -36,22 +36,22 @@ pipeline {
             stages {
                 stage('Install Frontend') {
                     steps {
-                        sh 'npm i'
+                        sh 'cd frontend && npm i'
                     }
                 }
                 stage('Lint Frontend') {
                     steps {
-                        sh 'npm run lint'
+                        sh 'cd frontend && npm run lint'
                     }
                 }
                 stage('Test Frontend') {
                     steps {
-                        sh 'npm run test'
+                        sh 'cd frontend && npm run test'
                     }
                 }
                 stage('Build Frontend') {
                     steps {
-                        sh 'npm run build'
+                        sh 'cd frontend && npm run build'
                     }
                 }
                 stage('Deploy Frontend') {
