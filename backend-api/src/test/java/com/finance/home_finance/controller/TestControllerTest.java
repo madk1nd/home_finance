@@ -17,6 +17,6 @@ class TestControllerTest {
     @Test
     void test1() {
         String body = controller.test().getBody();
-        assertEquals("Hello", body);
+        assertEquals("Ok", body);
     }
 }
