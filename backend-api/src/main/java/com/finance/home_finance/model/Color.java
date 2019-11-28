@@ -1,5 +1,6 @@
 package com.finance.home_finance.model;
 
+import lombok.Data;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.Table;
 import java.util.UUID;
 
 @Entity
+@Data
 @Table(name = "colors")
 public class Color {
 
@@ -16,30 +18,7 @@ public class Color {
     @Column(name = "id")
     @Type(type = "pg-uuid")
     private UUID id;
+
     @Column(name = "code")
     private String code;
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    @Override
-    public String toString() {
-        return "Color{" +
-                "id=" + id +
-                ", code='" + code + '\'' +
-                '}';
-    }
 }

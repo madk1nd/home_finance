@@ -1,14 +1,13 @@
 package com.finance.home_finance.controller;
 
-import com.finance.home_finance.service.ColorServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class TestControllerTest {
+class TestControllerColor {
 
-    private TestController controller;
+    private ColorController controller;
 
     @BeforeEach
     void init() {

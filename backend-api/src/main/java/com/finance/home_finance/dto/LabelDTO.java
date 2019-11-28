@@ -7,7 +7,8 @@ import java.util.UUID;
 
 @Data
 @AllArgsConstructor
-public class ColorDTO {
+public class LabelDTO {
     private UUID id;
-    private String code;
+    private String name;
+    private ColorDTO color;
 }
