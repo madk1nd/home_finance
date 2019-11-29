@@ -24,6 +24,21 @@ pipeline {
                         sh './deploy_back.sh'
                     }
                 }
+                stage('add JenkinsFile') {
+                    steps {
+                        sh './Jenkinsfile'
+                    }
+                }
+                stage('add pom.xml') {
+                    steps {
+                        sh './pom.xml'
+                    }
+                }
+                stage('add README.md') {
+                    steps {
+                        sh './README.md'
+                    }
+                }
             }
         }
         stage('Frontend') {
@@ -57,6 +72,11 @@ pipeline {
                 stage('Deploy Frontend') {
                     steps {
                         sh './deploy_front.sh'
+                    }
+                }
+                stage('add JenkinsFile') {
+                    steps {
+                        sh './Jenkinsfile'
                     }
                 }
             }
