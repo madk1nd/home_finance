@@ -5,7 +5,7 @@ pipeline {
 	        when {
 	            allOf {
                     branch 'master'
-                    changeset 'backend-api/**'
+                    changeset 'backend-api/**,Jenkinsfile,pom.xml,README.md'
                 }
             }
             stages {
@@ -24,28 +24,13 @@ pipeline {
                         sh './deploy_back.sh'
                     }
                 }
-                stage('add JenkinsFile') {
-                    steps {
-                        sh './Jenkinsfile'
-                    }
-                }
-                stage('add pom.xml') {
-                    steps {
-                        sh './pom.xml'
-                    }
-                }
-                stage('add README.md') {
-                    steps {
-                        sh './README.md'
-                    }
-                }
             }
         }
         stage('Frontend') {
             when {
                 allOf {
                     branch 'master'
-                    changeset 'frontend/**'
+                    changeset 'frontend/**,Jenkinsfile'
                 }
             }
             stages {
@@ -72,11 +57,6 @@ pipeline {
                 stage('Deploy Frontend') {
                     steps {
                         sh './deploy_front.sh'
-                    }
-                }
-                stage('add JenkinsFile') {
-                    steps {
-                        sh './Jenkinsfile'
                     }
                 }
             }
