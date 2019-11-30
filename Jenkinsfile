@@ -5,7 +5,10 @@ pipeline {
 	        when {
 	            allOf {
                     branch 'master'
-                    changeset 'backend-api/**,Jenkinsfile,pom.xml,README.md'
+                    changeset 'backend-api/**'
+		    changeset 'README.md'
+	            changeset 'pom.xml'
+	            changeset 'Jenkinsfile'
                 }
             }
             stages {
@@ -30,7 +33,8 @@ pipeline {
             when {
                 allOf {
                     branch 'master'
-                    changeset 'frontend/**,Jenkinsfile'
+                    changeset 'frontend/**'
+		    changeset 'Jenkinsfile'
                 }
             }
             stages {
