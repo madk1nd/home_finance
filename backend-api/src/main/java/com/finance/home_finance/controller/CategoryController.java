@@ -1,10 +1,9 @@
 package com.finance.home_finance.controller;
 
-import com.finance.home_finance.dto.LabelDTO;
-import com.finance.home_finance.service.LabelService;
+import com.finance.home_finance.dto.CategoryDTO;
+import com.finance.home_finance.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,13 +12,14 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class LabelController {
+public class CategoryController {
 
-    private final LabelService service;
+    private final CategoryService service;
 
-    @GetMapping(path = "/labels", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<LabelDTO>> getAll() {
-        List<LabelDTO> all = service.getAll();
+    @GetMapping("/categories")
+    public ResponseEntity<List<CategoryDTO>> categories() {
+        List<CategoryDTO> all = service.getAll();
         return new ResponseEntity<>(all, HttpStatus.ACCEPTED);
     }
 }
+
